@@ -45,14 +45,17 @@ umount /home/chronos/usbdrv
 
 ## Usage
 
-After creating a USB drive with cedr, you can remount it and launch the desktop environment with the following steps:
+After creating a USB drive with cedr, you can remount it and launch the desktop environment with the super-duper-ultra-easy command found below:
 
-1. Mount the drive:
 ```bash
-mount -o exec,suid,dev,symfollow /dev/sdX /home/chronos/usbdrv # Be sure to replace /dev/sdX with your drive!
-cd /home/chronos/usbdrv
+curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-mount.sh | bash -s /dev/sdX startxfce4
 ```
-2. Launch `cedr-activate.sh` with the host command you found earlier:
+
+Once again, replace /dev/sdX with your USB drive/SD card, and replace startxfce4 with your desktop environment's host command.
+
+Once you're done, just do the same thing as before to unmount your drive:
+
 ```bash
-./cedr-activate.sh startxfce4
+cd /home/chronos
+umount /home/chronos/usbdrv
 ```
