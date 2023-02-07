@@ -25,7 +25,7 @@ mkdir -p /home/chronos/usbdrv
 mount -o exec,suid,dev,symfollow /dev/sdX /home/chronos/usbdrv # Be sure to replace /dev/sdX with your drive!
 cd /home/chronos/usbdrv
 curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-install.sh -o cedr-install.sh
-curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-install.sh -o cedr-activate.sh
+curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-activate.sh -o cedr-activate.sh
 chmod +x cedr-activate.sh
 chmod +x cedr-install.sh
 ```
