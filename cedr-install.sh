@@ -3,12 +3,8 @@
 # Licensed under the MIT License (https://github.com/rainestorme/cedr/blob/main/LICENSE)
 
 # Get the passed parameters
-drive=$1
-desktop=$2
+desktop=$1
 
-# Mount the drive
-mkdir -p /home/chronos/usbdrv
-mount -o exec,suid,dev,symfollow $drive /home/chronos/usbdrv
 pushd /home/chronos/usbdrv
 
 # Download crouton
