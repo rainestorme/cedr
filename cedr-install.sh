@@ -5,7 +5,7 @@
 # Get the passed parameters
 desktop=$1
 
-pushd /home/chronos/usbdrv
+pushd /home/chronos/usbdrv | exit
 
 # Download crouton
 curl https://github.com/rainestorme/crouton/archive/refs/tags/downloadlink.tar.gz -o crouton.tar.gz
@@ -23,3 +23,5 @@ chmod +x crouton
 
 # Install chroot
 ./crouton -t $desktop -p ./
+
+popd | exit
