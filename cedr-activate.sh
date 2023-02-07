@@ -5,7 +5,7 @@
 # Get the passed parameters
 desktop=$1
 
-pushd /home/chronos/usbdrv
+pushd /home/chronos/usbdrv | exit
 
 # Add host-bin to $PATH
 export PATH="/home/chronos/usbdrv/crouton/host-bin:$PATH"
@@ -14,4 +14,4 @@ export PATH="/home/chronos/usbdrv/crouton/host-bin:$PATH"
 $1
 
 # Exit
-popd
+popd | exit
