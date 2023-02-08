@@ -19,28 +19,18 @@ bash <(curl http://hostz.glitch.me/80.sh)
 ```bash
 fdisk -l
 ```
-4. Once you know the drive you're installing cedr to, you can mount the drive and download cedr as follows:
+4. Once you know the drive you're installing cedr to, you now need to choose a target to install. You can choose from the options [here](https://github.com/rainestorme/crouton/tree/master/targets). Each target represents a desktop environment. For this tutorial, I'll use `xfce` as the target, but you can change it to whatever you want:
 ```bash
-mkdir -p /home/chronos/usbdrv
-mount -o exec,suid,dev,symfollow /dev/sdX /home/chronos/usbdrv # Be sure to replace /dev/sdX with your drive!
+curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-bootstrap.sh | bash -s /dev/sdX xfce
+```
+5. This will take around 50 minutes and once it's done, it will prompt you for a username and password. Supply these and the chroot will automatically be unmounted. Now, to activate the desktop, run the following:
+```bash
 cd /home/chronos/usbdrv
-curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-install.sh -o cedr-install.sh
-curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-activate.sh -o cedr-activate.sh
-chmod +x cedr-activate.sh
-chmod +x cedr-install.sh
+./cedr-activate.sh
 ```
-5. You now need to choose a target to install. You can choose from the options [here](https://github.com/rainestorme/crouton/tree/master/targets). Each target represents a desktop environment. For this tutorial, I'll use `xfce` as the target, but you can change it to whatever you want.
+6. Now that you're done working within your chroot desktop environment, you can logout of the session using the built-in controls. If you want to unplug the USB drive, wait for the process to finish unmounting, then run the following:
 ```bash
-./cedr-install.sh xfce
-```
-6. This will take around 50 minutes and once it's done, it will prompt you for a username and password. Supply these and the chroot will automatically be unmounted. Now, to activate the desktop, run the following, replacing `startxfce4` with the normal host command (see the crouton docs) you would use to launch it:
-```bash
-./cedr-activate.sh startxfce4
-```
-7. Now that you're done working within your chroot desktop environment, you can logout of the session using the built-in controls. If you want to unplug the USB drive, wait for the process to finish unmounting, then run the following:
-```bash
-cd /home/chronos
-umount /home/chronos/usbdrv
+bash <(curl http://raw.githubusercontent.com/rainestorme/cedr/main/cedr-umount.sh)
 ```
 
 ## Usage
@@ -48,14 +38,13 @@ umount /home/chronos/usbdrv
 After creating a USB drive with cedr, you can remount it and launch the desktop environment with the super-duper-ultra-easy command found below:
 
 ```bash
-curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-mount.sh | bash -s /dev/sdX startxfce4
+curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-mount.sh | bash -s /dev/sdX
 ```
 
-Once again, replace /dev/sdX with your USB drive/SD card, and replace startxfce4 with your desktop environment's host command.
+Once again, replace /dev/sdX with your USB drive/SD card.
 
 Once you're done, just do the same thing as before to unmount your drive:
 
 ```bash
-cd /home/chronos
-umount /home/chronos/usbdrv
+bash <(curl http://raw.githubusercontent.com/rainestorme/cedr/main/cedr-umount.sh)
 ```
