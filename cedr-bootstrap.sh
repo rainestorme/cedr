@@ -6,7 +6,7 @@
 drive=$1
 target=$2
 
-if [ ! -b $drive ]; then
+if [ ! -b "$drive" ]; then
   echo "[cedr] Error: $drive is not a block device"
   exit 1
 fi
@@ -22,11 +22,11 @@ if [ "$target" != "e17" ] && [ "$target" != "gnome" ] && [ "$target" != "kde" ] 
     exit 1
 fi
 
-umount $drive
+umount "$drive"
 mkdir -p /home/chronos/usbdrv
-mount -o exec,suid,dev,symfollow $drive /home/chronos/usbdrv
+mount -o exec,suid,dev,symfollow "$drive" /home/chronos/usbdrv
 
-cd /home/chronos/usbdrv
+cd /home/chronos/usbdrv || exit
 
 curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-install.sh -o cedr-install.sh
 curl https://raw.githubusercontent.com/rainestorme/cedr/main/cedr-activate.sh -o cedr-activate.sh
@@ -49,4 +49,4 @@ fi
 
 echo "$hostcmd" > ./cedr-hostcmd
 
-./cedr-install.sh $target
+./cedr-install.sh "$target"
