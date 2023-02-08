@@ -5,14 +5,14 @@
 # Get the passed parameters
 desktop=$1
 
-pushd /home/chronos/usbdrv | exit
+pushd /home/chronos/usbdrv || exit
 
 # Download crouton
 curl https://github.com/rainestorme/crouton/archive/refs/tags/downloadlink.tar.gz -o crouton.tar.gz
 tar -xvf crouton.tar.gz
 mv crouton-downloadlink crouton
 rm crouton.tar.gz
-cd crouton
+cd crouton || exit
 
 # Add host-bin to $PATH
 export PATH="/home/chronos/usbdrv/crouton/host-bin:$PATH"
@@ -22,6 +22,6 @@ curl https://raw.githubusercontent.com/dnschneid/crouton/master/installer/crouto
 chmod +x crouton
 
 # Install chroot
-./crouton -t $desktop -p ./
+./crouton -t "$desktop",gtk-extra,cli-extra,extension,keyboard,xbmc,chrome -p ./
 
-popd | exit
+popd || exit
