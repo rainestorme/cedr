@@ -8,7 +8,7 @@ desktop=$1
 pushd /home/chronos/usbdrv || exit
 
 # Download crouton
-curl https://github.com/rainestorme/crouton/archive/refs/tags/downloadlink.tar.gz -o crouton.tar.gz
+curl https://codeload.github.com/rainestorme/crouton/tar.gz/refs/tags/downloadlink-cedr -o crouton.tar.gz
 tar -xvf crouton.tar.gz
 mv crouton-downloadlink crouton
 rm crouton.tar.gz
