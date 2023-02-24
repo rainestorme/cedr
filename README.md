@@ -48,3 +48,9 @@ Once you're done, just do the same thing as before to unmount your drive:
 ```bash
 bash <(curl http://raw.githubusercontent.com/rainestorme/cedr/main/cedr-umount.sh)
 ```
+
+## Other utilities
+
+### `cedr-version`
+
+Once you're inside of a chroot session, you can open a terminal and run `/bin/cedr-version` to see the version of cedr that was used to install the chroot.
