@@ -1,3 +1,7 @@
+# cedr is deprecated!
+
+Instead, use a proper solution like fakemurk or murkmod.
+
 # cedr
 cedr - the ChromeOS Enrolled Desktop Runtime
 
